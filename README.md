@@ -13,7 +13,7 @@ Requirements
 
 PG 9.2 gives you a JSON datatype, which will validate JSON automatically.
 
-Any version of PG that supports PL/V8 can be used but the functions will need to be adapted to use TEXT instead of JSON types. Validations will also obviously need to be handled manually.
+Any version of PG that supports PL/V8 can be used but the functions will need to be adapted to use TEXT instead of JSON types. Validation of JSON will also obviously need to be handled manually. 
 
 
 
