@@ -17,6 +17,18 @@ Any version of PG that supports PL/V8 can be used but the functions will need to
 
 
 
+Background
+------------------------------------
+
+Initial work inspired by a demo by Andrew Dunstan
+http://people.planetpostgresql.org/andrew/index.php?/archives/249-Using-PLV8-to-index-JSON.html
+
+And this by @leinweber captures the grand vision 
+http://ssql-pgaustin.herokuapp.com/#1
+
+
+
+
 
 
 Details
