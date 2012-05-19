@@ -27,33 +27,36 @@ And this by @leinweber captures the grand vision
 http://ssql-pgaustin.herokuapp.com/#1
 
 
-
-
-
-
 Details
 -------------------------------------
 
-  JSON Types need to be mapped into corresponding PG types 
+In order to be used in WHERE and ORDER BY correctly JSON field, the various JSON Types need to be mapped into corresponding PG types.
   
-  Number     => INT or DOUBLE PRECISION
-  String     => TEXT
-  Date       => TIMESTAMP
-  Boolean    => BOOLEAN
-  Array      => ARRAY of appropriate PG Type 
-  Object     => 
-  null       => NULL
+    Number     => INT or DOUBLE PRECISION
+    String     => TEXT
+    Date       => TIMESTAMP
+    Boolean    => BOOLEAN
+    Array      => ARRAY of appropriate PG Type 
+    Object     => ?
+    null       => NULL
+ 
+Functions expect a column of pg JSON type.     
 
-   USING the following functions:
-   
-   Each function takes a JSON column and a field to access as string 
-   Nested fields can be access as well eg "person.name"
+All functions will accept a JSON field as a string in dot notation, allowing access to fields of arbtirary depth eg "person.name".
   
-     json_string
-   
-     json_int
+
+  json_string(column, field) returns TEXT
+
+    SELECT id, json_string(data,'person.name') FROM things WHERE json_string(data,'person.name') = 'Zaphod';
+    SELECT id, json_string(data,'name') FROM things WHERE json_string(data,'name') LIKE 'G%';
+ 
+  json_int(column, field) returns INT
+
+    SELECT id, json_int(data,'person.id') FROM things WHERE json_int(data,'person.id') = 10;
+    SELECT id, json_int(data,'count') FROM things WHERE json_int(data,'count') <= 99;
+ 
+  json_float(column, field) returns DOUBLE PRECISION
   
-     json_float
   
      json_bool
          literal js true will convert to PG true, other values are falsey
