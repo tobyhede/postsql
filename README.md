@@ -52,6 +52,7 @@ All functions will accept a JSON field as a string in dot notation, allowing acc
 #### json_string(column, field) returns TEXT
 
     SELECT id, json_string(data,'person.name') FROM things WHERE json_string(data,'person.name') = 'Zaphod';
+    
     SELECT id, json_string(data,'name') FROM things WHERE json_string(data,'name') LIKE 'G%';
  
 #### json_int(column, field) returns INT
@@ -59,6 +60,7 @@ All functions will accept a JSON field as a string in dot notation, allowing acc
 JS values that are NaN are returned as NULL
 
     SELECT id, json_int(data,'person.id') FROM things WHERE json_int(data,'person.id') = 10;
+    
     SELECT id, json_int(data,'count') FROM things WHERE json_int(data,'count') <= 99;
  
 #### json_float(column, field) returns DOUBLE PRECISION
@@ -66,6 +68,7 @@ JS values that are NaN are returned as NULL
 JS values that are NaN are returned as NULL
 
     SELECT id, json_int(data,'person.id') FROM things WHERE json_int(data,'person.id') = 10.01;
+    
     SELECT id, json_int(data,'count') FROM things WHERE json_int(data,'count') <= 99.9999;
 
 
@@ -102,15 +105,14 @@ Will wrap an integer into an array as required
 
 Appends json_value to an array or if the field is not present, will set the field to be an array containing json_value. Will throw an error if the field is not an array. *json_value* is a string representing a valid JSON representation.
 
-         UPDATE things SET data = json_add_to_set(data, 'array', '10');
-         Will error if field is not an array.
+    UPDATE things SET data = json_add_to_set(data, 'array', '10');
   
   
 #### json_add_to_set(column, field, json_value)
 
 Appends json_value to an array if it is not in the array already or if the field is not present, will set the field to be an array containing json_value. Will throw an error if the field is not an array. *json_value* is a string representing a valid JSON representation.
          
-         UPDATE things SET data = json_add_to_set(data, 'object.array', '10');
+    UPDATE things SET data = json_add_to_set(data, 'object.array', '10');
 
   
 ##### Indexes and/or Indices
