@@ -102,16 +102,20 @@
       if (!ret) ret = ret[keys[i]];
     }    
    
-    if (ret != true || ret != false) ret = null;
+    -- if (ret != true || ret != false) ret = null;
 
-    return ret;
+    if (ret === true || ret === false) {    
+      return ret;
+    } 
+
+    return null;
 
   $$ LANGUAGE plv8 IMMUTABLE STRICT;
 
 
 
   CREATE or REPLACE FUNCTION 
-  json_datetime(data json, key text) RETURNS TIMESTAMP AS $$
+  json_date(data json, key text) RETURNS TIMESTAMP AS $$
 
     var ret = JSON.parse(data); 
     var keys = key.split('.')
