@@ -102,7 +102,7 @@
       if (!ret) ret = ret[keys[i]];
     }    
    
-    -- if (ret != true || ret != false) ret = null;
+    // if (ret != true || ret != false) ret = null;
 
     if (ret === true || ret === false) {    
       return ret;
