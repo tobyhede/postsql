@@ -16,11 +16,11 @@
     var len = keys.length;
     
     for (var i=0; i<len; ++i) {
-      if (!ret) ret = ret[keys[i]];
+      if (ret != undefined) ret = ret[keys[i]];
     }    
    
   
-    if (!ret) {
+    if (ret != undefined) {
       ret = ret.toString();
     }
 
@@ -38,7 +38,7 @@
     var len = keys.length;
     
     for (var i=0; i<len; ++i) {
-      if (!ret) ret = ret[keys[i]];
+      if (ret != undefined) ret = ret[keys[i]];
     }    
    
     ret = parseInt(ret);   
@@ -57,7 +57,7 @@
     var len = keys.length;
     
     for (var i=0; i<len; ++i) {
-      if (!ret) ret = ret[keys[i]];
+      if (ret != undefined) ret = ret[keys[i]];
     }    
    
     if (! (ret instanceof Array)) {
@@ -79,7 +79,7 @@
     var len = keys.length;
     
     for (var i=0; i<len; ++i) {
-      if (!ret) ret = ret[keys[i]];
+      if (ret != undefined) ret = ret[keys[i]];
     }    
    
     ret = parseFloat(ret);   
@@ -99,7 +99,7 @@
     var len = keys.length;
     
     for (var i=0; i<len; ++i) {
-      if (!ret) ret = ret[keys[i]];
+      if (ret != undefined) ret = ret[keys[i]];
     }    
    
     // if (ret != true || ret != false) ret = null;
@@ -122,7 +122,7 @@
     var len = keys.length;
     
     for (var i=0; i<len; ++i) {
-      if (!ret) ret = ret[keys[i]];
+      if (ret != undefined) ret = ret[keys[i]];
     }    
 
     //ret = Date.parse(ret)
