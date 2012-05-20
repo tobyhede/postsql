@@ -131,6 +131,8 @@
     ret = new Date(ret)
     if (isNaN(ret.getTime())) ret = null;
 
+    return ret; 
+
   $$ LANGUAGE plv8 IMMUTABLE STRICT;
 
 
