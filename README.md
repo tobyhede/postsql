@@ -100,12 +100,17 @@ Will wrap an integer into an array as required
 
 
 ### Advanced Functions
+
+Array functions can be chained together, allowing for multiple operations on JSON data within a single transaction:
+
+    UPDATE things SET data = json_push(json_add_to_set(data, 'array', '101'), 'array', '99');
+
      
 #### json_push(column, field, json_value)
 
 Appends json_value to an array or if the field is not present, will set the field to be an array containing json_value. Will throw an error if the field is not an array. *json_value* is a string representing a valid JSON representation.
 
-    UPDATE things SET data = json_add_to_set(data, 'array', '10');
+    UPDATE things SET data = json_push(data, 'array', '10');
   
   
 #### json_add_to_set(column, field, json_value)
