@@ -253,4 +253,23 @@
    
   $$ LANGUAGE plv8 STABLE STRICT;
 
+
+
+
+
+  CREATE or REPLACE FUNCTION 
+  json_data(data json, fields text) RETURNS JSON AS $$
+
+      var data = JSON.parse(data); 
   
+      var _fields = fields.split(',');
+
+      for (var key in data) {
+        if (_fields.indexOf(key) == -1) delete data[key];        
+      }
+  
+    return JSON.stringify(data);
+   
+  $$ LANGUAGE plv8 STABLE STRICT;
+
+

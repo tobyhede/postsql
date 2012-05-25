@@ -119,6 +119,17 @@ Appends json_value to an array if it is not in the array already or if the field
          
     UPDATE things SET data = json_add_to_set(data, 'object.array', '10');
 
+
+
+##### Accessing Data 
+
+#### json_data(column, fields)
+
+Returns only the specified fields from the JSON data column.
+
+    SELECT id, json_data(data, 'uuid,name') FROM things;
+
+
   
 ##### Indexes and/or Indices
   
