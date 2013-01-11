@@ -11,7 +11,7 @@
   CREATE or REPLACE FUNCTION 
   json_string(data json, key text) RETURNS TEXT AS $$
 
-    var ret = JSON.parse(data); 
+    var ret = data;
     var keys = key.split('.')
     var len = keys.length;
     
@@ -33,7 +33,7 @@
   CREATE or REPLACE FUNCTION 
   json_int(data json, key text) RETURNS INT AS $$
 
-    var ret = JSON.parse(data); 
+    var ret = data;
     var keys = key.split('.')
     var len = keys.length;
     
@@ -52,7 +52,7 @@
   CREATE or REPLACE FUNCTION 
   json_int_array(data json, key text) RETURNS INT[] AS $$
 
-    var ret = JSON.parse(data); 
+    var ret = data;
     var keys = key.split('.')
     var len = keys.length;
     
@@ -74,7 +74,7 @@
   CREATE or REPLACE FUNCTION 
   json_float(data json, key text) RETURNS DOUBLE PRECISION AS $$
 
-    var ret = JSON.parse(data); 
+    var ret = data;
     var keys = key.split('.')
     var len = keys.length;
     
@@ -94,7 +94,7 @@
   CREATE or REPLACE FUNCTION 
   json_bool(data json, key text) RETURNS BOOLEAN AS $$
 
-    var ret = JSON.parse(data); 
+    var ret = data;
     var keys = key.split('.')
     var len = keys.length;
     
@@ -117,7 +117,7 @@
   CREATE or REPLACE FUNCTION 
   json_date(data json, key text) RETURNS TIMESTAMP AS $$
 
-    var ret = JSON.parse(data); 
+    var ret = data;
     var keys = key.split('.')
     var len = keys.length;
     
@@ -141,8 +141,8 @@
   CREATE or REPLACE FUNCTION 
   json_update(data json, value text) RETURNS BOOLEAN AS $$
 
-    var data = JSON.parse(data); 
-    var forUpdate = JSON.parse(value); 
+    var data = data;
+    var forUpdate = value;
 
     for (k in forUpdate) {
       if ( data.hasOwnProperty(k) ) {
@@ -159,8 +159,8 @@
   CREATE or REPLACE FUNCTION 
   json_push(data json, key text, value json) RETURNS JSON AS $$
 
-    var data = JSON.parse(data); 
-    var value = JSON.parse(value); 
+    var data = data;
+    var value = value;
 
     var keys = key.split('.')
     var len = keys.length;
@@ -194,8 +194,8 @@
   CREATE or REPLACE FUNCTION 
   json_add_to_set(data json, key text, value json) RETURNS JSON AS $$
 
-    var data = JSON.parse(data); 
-    var value = JSON.parse(value); 
+    var data = data;
+    var value = value;
 
     var keys = key.split('.')
     var len = keys.length;
@@ -228,8 +228,8 @@
   CREATE or REPLACE FUNCTION 
   json_pull(data json, key text, value json) RETURNS JSON AS $$
 
-    var data = JSON.parse(data); 
-    var value = JSON.parse(value); 
+    var data = data;
+    var value = value;
 
     var keys = key.split('.')
     var len = keys.length;
@@ -260,7 +260,7 @@
   CREATE or REPLACE FUNCTION 
   json_data(data json, fields text) RETURNS JSON AS $$
 
-      var data = JSON.parse(data); 
+      var data = data;
   
       var _fields = fields.split(',');
 
