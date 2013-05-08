@@ -7,7 +7,7 @@ Functions for transforming PostgreSQL and PL/v8 into a totally awesome JSON docu
 Requirements
 ------------------------------------
 
- * PostgreSQL 9.2 beta 
+ * PostgreSQL 9.2+
  * PL/V8 http://code.google.com/p/plv8js/wiki/PLV8
 
 
